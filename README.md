@@ -1,3 +1,3 @@
 # dotnetDataAnnotations
 
-Form doğrulaması
+Form doğrulaması yapan örbnek uygulama
