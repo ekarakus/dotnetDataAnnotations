@@ -28,17 +28,24 @@ public class Ogrenci
    
    [Display(Name ="Kayıt tarihi")]
    [DataType(DataType.Date)]
+   [Required(ErrorMessage = "Kayıt tarihi boş bırakılamaz.")]
     public DateTime kayitTarihi{get;set;}
     
-    [Display(Name ="Okul NumaraSI")]
-
+    [Required(ErrorMessage = "Okul numarası boş bırakılamaz.")]
+    [Display(Name ="Okul Numarası")]
     public int okulNumarasi{get;set;}
+
     [DataType(DataType.Password)]
     [Display(Name ="Şifre")]
     [MinLength(8)]
     [MaxLength(12)]
+    [Required(ErrorMessage = "Şifre boş bırakılamaz.")]
+    
     public string sifre{get;set;}=null!;
+
     [Compare("sifre",ErrorMessage ="şifre takrarlama hatası")]
     [Display(Name ="Şifre tekrarı")]
+   [Required(ErrorMessage = "Şifre  tekrarı boş bırakılamaz.")]
+   [DataType(DataType.Password)]
     public string sifreTekrari{get;set;}=null!;
 }
