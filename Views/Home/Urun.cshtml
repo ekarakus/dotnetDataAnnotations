@@ -1,0 +1,38 @@
+@model Urun
+<form asp-action="Urun" asp-controller="Home" method="post">
+<div class="row pb-3">
+    <div class="col-3">
+        <label asp-for="urunAdi"></label></div>
+    <div class="col-9">
+        <input asp-for="urunAdi" class="form-control"/>
+        <span asp-validation-for="urunAdi"></span>
+    </div>
+</div>
+<div class="row pb-3">
+    <div class="col-3">
+        <label asp-for="agirlik"></label></div>
+    <div class="col-9">
+        <input asp-for="agirlik" class="form-control"/>
+        <span asp-validation-for="agirlik"></span>
+    </div>
+</div>
+<div class="row pb-3">
+    <div class="col-3">
+        <label asp-for="email"></label></div>
+    <div class="col-9">
+        <input asp-for="email" class="form-control"/>
+        <span asp-validation-for="email" class="text-danger"></span>
+    </div>
+</div>
+
+<div class="row pb-3 ">
+    <div class="offset-md-3 col-9">
+        <button type="reset" class="btn btn-danger">Temizle</button>
+        <button type="submit" class="btn btn-success">Gönder</button>
+    </div>
+</div>
+
+</form> 
+@section Scripts{
+    <partial name="_dogrulama"/>
+}

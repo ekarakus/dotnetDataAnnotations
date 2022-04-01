@@ -28,4 +28,21 @@ public class HomeController : Controller
     {
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
+[HttpGet]
+    public IActionResult Urun(){
+        Urun u= new Urun();
+        return View(u);
+    }
+    [HttpPost]
+    public IActionResult Urun(Urun model){
+        
+        if(ModelState.IsValid){
+            if(model.agirlik>1000){
+                ModelState.AddModelError("agirlik","Ağırlık 1000 altı olmalı");
+                return View(model);
+            }
+            return  View("Views/Home/Tamam.cshtml",model);
+        }
+        return View(model);
+    }
 }
