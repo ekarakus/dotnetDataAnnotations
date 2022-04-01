@@ -20,6 +20,10 @@ public class KayitController:Controller{
                ModelState.AddModelError("okulNumarasi","0-2000 arası giriniz");
                return View(m);
            } 
+           if(m.kayitTarihi<DateTime.Now.Date){
+               ModelState.AddModelError("kayitTarihi","Geçmiş tarih girmeyiniz..");
+               return View(m);
+           }
              ViewBag.sonuc="Kayıt tamamlandı";
              return  View("Views/Kayit/Tebrikler.cshtml",m);
             
