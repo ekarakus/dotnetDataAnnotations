@@ -1,7 +1,8 @@
 @*sayfaya modeli tanıtıyorunz*@
 @model Ogrenci
 <form asp-action="Index" method="post" asp-controller="Kayit" asp-antiforgery="true">
-        <div asp-validation-summary="All"></div>  
+        @* burası hataları listeleer*@
+        @*<div asp-validation-summary="All"></div>  *@
 
 <div class="row mt-3">
     <label asp-for="ad" class="col-md-3"></label>
@@ -75,3 +76,6 @@
     </div>    
 </div>
 </form>
+@section Scripts{
+    <partial name="_dogrulama"/>
+}
