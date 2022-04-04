@@ -1,0 +1,30 @@
+@model List<Ogrenci>
+    <h1>Öğrenciler</h1>
+     <table class="table table-border"> 
+         <thead>
+             <th>No#</th>
+             <th>Ad</th>
+             <th>Soyad</th>
+             <th>Ortalama</th>
+             <th></th>
+         </thead>
+         <tbody>
+    @foreach (Ogrenci kayit in Model)
+    {
+       
+        <tr>
+<td>@kayit.okulNumarasi </td>
+            <td>@kayit.ad </td>
+            <td> @kayit.soyad </td>
+            <td> @kayit.notOrtalamasi</td>
+            <td>
+                <a asp-action="Sil" asp-controller="Kayit"
+                asp-route-no="@kayit.okulNumarasi" >
+                    Sil
+                </a>
+            </td>
+        </tr>
+      
+    }
+    </tbody>  
+    </table>

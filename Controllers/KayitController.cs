@@ -1,6 +1,11 @@
 using System;
 using Microsoft.AspNetCore.Mvc;
+using kayit.Models;
 public class KayitController:Controller{
+    public KayitController()
+    {
+        
+    }
    //form ekranını oluşturan yer
    [HttpGet]
     public IActionResult Index(){
@@ -25,10 +30,27 @@ public class KayitController:Controller{
                return View(m);
            }
              ViewBag.sonuc="Kayıt tamamlandı";
+             Depo.OgrenciListesi.Add(m);
              return  View("Views/Kayit/Tebrikler.cshtml",m);
             
         }else   {              
             return View(m);
         }
+        
+    }
+
+    public IActionResult Liste(){            
+        
+        return View(Depo.OgrenciListesi);
+    }
+    public IActionResult Sil(int no){
+      var kayit=  Depo.OgrenciListesi.Find(ogrenci=>ogrenci.okulNumarasi==no);
+        if(kayit!=null){
+            Depo.OgrenciListesi.Remove(kayit);
+            return RedirectToAction(nameof(Liste));
+        } else{
+            return RedirectToAction("Error","Home");
+        }
+        
     }
 }

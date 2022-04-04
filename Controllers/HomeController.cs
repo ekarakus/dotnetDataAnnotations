@@ -41,7 +41,18 @@ public class HomeController : Controller
                 ModelState.AddModelError("agirlik","Ağırlık 1000 altı olmalı");
                 return View(model);
             }
+            List<Ogrenci> ogrenciler= new List<Ogrenci>();
+            Ogrenci ogrenci1= new Ogrenci();
+            ogrenci1.ad="Eda";
+            ogrenci1.email="eda@veda.com";
+            ogrenciler.Add(ogrenci1);
+            ogrenciler.Clear();
+            ogrenciler.Find(x=>x.okulNumarasi==500);
+            ogrenciler.Average(x=>x.notOrtalamasi);
             return  View("Views/Home/Tamam.cshtml",model);
+            
+
+
         }
         return View(model);
     }
