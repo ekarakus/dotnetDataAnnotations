@@ -38,5 +38,28 @@ namespace kayit.Models
     });
      }
      public static List<Ogrenci>  OgrenciListesi = new List<Ogrenci>();
+     public static List<Urun> UrunListesi = new List<Urun>();
+    public static void UrunDoldur(){
+    UrunListesi.Add(new Urun(){
+    agirlik=7,
+    urunAdi="su",  
+    email="su@erikli.com"  
+    });
+     UrunListesi.Add(new Urun(){
+    agirlik=6,
+    urunAdi="ekmek",  
+    email="pide@firin.com"  
+    });
+     UrunListesi.Add(new Urun(){
+    agirlik=15,
+    urunAdi="yağ",  
+    email="yag@yudum.com"  
+    });
+     UrunListesi.Add(new Urun(){
+    agirlik=0.5,
+    urunAdi="Şeker",  
+    email="sekerfirmasi@gmail.com"  
+    });
+    }
     }
 }

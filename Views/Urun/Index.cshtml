@@ -1,0 +1,33 @@
+@model List<Urun>
+<form>
+<div class ="row">
+    <div class="col-9">
+<input type="text" name="isim"m 
+value="@Context.Request.Query["isim"]"
+placeholder="ürün adı giriniz"
+class="form-control"/>
+    </div>
+    <div class="col-3 d-grid">
+<button type="submit" class="btn btn-primary">Ara</button>
+    </div>
+</div>
+</form>
+<table>
+    <thead>
+        <tr>
+            <th>Ürün Adı</th>
+            <th>Ürün Ağırlık</th>
+            <th>Firma  Email</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.urunAdi</td>
+                <td>@item.agirlik</td>
+                <td>@item.email</td>
+            </tr>
+        }
+    </tbody>
+</table>
