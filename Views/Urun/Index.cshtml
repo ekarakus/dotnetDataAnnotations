@@ -1,5 +1,5 @@
 @model List<Urun>
-<form>
+<form id="formAra">
 <div class ="row">
     <div class="col-9">
 <input type="text" name="isim"m 
@@ -8,11 +8,13 @@ placeholder="ürün adı giriniz"
 class="form-control"/>
     </div>
     <div class="col-3 d-grid">
-<button type="submit" class="btn btn-primary">Ara</button>
+@*<button type="submit" class="btn btn-primary">Ara</button>/*@
     </div>
 </div>
 </form>
-<table>
+@if (Model.Count>0)
+{
+    <table class="table table-border mt-3">
     <thead>
         <tr>
             <th>Ürün Adı</th>
@@ -31,3 +33,17 @@ class="form-control"/>
         }
     </tbody>
 </table>
+} else{
+    <div class=" mt-5 alert alert-warning"> Aradığınız ürün(ler) bulunamadı..</div>
+}
+@section Scripts{
+    <script>
+    
+    $(function(){
+    $("input[name='isim']").keyup(function(){
+        $("#formAra").submit();
+    });
+    });
+    </script>
+
+}

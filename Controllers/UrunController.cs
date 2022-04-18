@@ -5,7 +5,10 @@ public class UrunController:Controller{
         //isim eğer boş değil ise filtrele
         if(!string.IsNullOrEmpty(isim)){
             return View(Depo.UrunListesi
-            .Where(u=>u.urunAdi.ToLower().StartsWith(isim.ToLower()))
+            .Where(u=>
+            u.urunAdi.ToLower().Contains(isim.ToLower())
+            || u.email.ToLower().Contains(isim.ToLower())
+            )
             .ToList());
         } else{
             // isim boş ise filtreleme yapma
