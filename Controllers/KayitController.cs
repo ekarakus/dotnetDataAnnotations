@@ -39,9 +39,17 @@ public class KayitController:Controller{
         
     }
 
-    public IActionResult Liste(){            
-        
+    public IActionResult Liste(string isim){
+        if(!string.IsNullOrEmpty(isim)){
+        return View(Depo
+                    .OgrenciListesi
+                    .Where(x=>x.ad.ToLower().StartsWith(isim.ToLower()))
+                    .OrderBy(x=>x.ad)
+                    .ToList());
+        }else {     
+
         return View(Depo.OgrenciListesi);
+        }
     }
     public IActionResult Sil(int no){
       var kayit=  Depo.OgrenciListesi.Find(ogrenci=>ogrenci.okulNumarasi==no);

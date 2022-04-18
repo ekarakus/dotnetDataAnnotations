@@ -1,5 +1,20 @@
 @model List<Ogrenci>
     <h1>Öğrenciler</h1>
+    
+    <form>
+        <div class="row">
+        <div class="col-9">
+            <input name="isim" 
+            placeholder="isim giriniz" 
+            value='@Context.Request.Query["isim"]'
+            class="form-control"/>
+        </div>
+        <div class="col-3">
+            <button type="submit" class="btn btn-success" style="width: 100%;">Ara</button>
+        </div>
+    </div>
+    </form>
+
      <table class="table table-border"> 
          <thead>
              <th>No#</th>
